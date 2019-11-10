@@ -1,0 +1,23 @@
+<div class="background"></div>
+<div class="order-container container">
+  <div class="row">
+    <div class="col">
+      <h1>Deals from {{source}} to {{destination}}</h1>
+    </div>
+  </div>
+  <div *ngFor="let flight of flights">
+    <div class="row">
+      <div class="col">
+        Flight {{flight.flightNumber}} departing on {{flight.date}} ({{flight.duration}} flight)
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-block text-center btn-success">Buy Now for ${{flight.price}} (Only {{flight.seats}} Seat{{flight.seats != 1 ? "s" : ""}} left)</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><p></p></div>
+  </div>
+</div>

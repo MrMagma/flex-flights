@@ -1,0 +1,24 @@
+<div class="background"></div>
+<div class="new-order-container container">
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label class="form-label" for="source">Where do you want to leave from?</label>
+        <input id="source" (input)="source=$event.target.value" class="form-control source-code" maxlength="3" placeholder="abc"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label class="form-label" for="destination">Where do you want to go?</label>
+        <input id="destination" (input)="destination=$event.target.value" type="text" class="form-control destination-code" maxlength="3" placeholder="abc"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary btn-block" [disabled]="!(source.length == 3 && destination.length == 3)" (click)="placeOrder()">Place Order</button>
+    </div>
+  </div>
+</div>

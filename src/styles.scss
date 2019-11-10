@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Helvetica";
+}
+
+.root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url("../download.jpg") no-repeat center center;
+    background-size: auto 100%;
+}
+
+.form-control {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+    &:focus {
+        outline: none;
+        border-bottom-color: rgba(0, 0, 0, 1);
+        box-shadow: none;
+    }
+}

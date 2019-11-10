@@ -1,0 +1,29 @@
+<div class="signup-parent">
+  <div class="logo"></div>
+  <div class="container signup-container">
+    <h1 class="text-center">Sign Up</h1>
+    <div class="row">
+      <div class="col">
+          <div class="form-group" [class.invalid]="!emailValid">
+            <!-- <label for="email">Email</label> -->
+            <input [value]="email" type="email" class="form-control" id="email" placeholder="Email" (input)="emailChange($event)">
+          </div>
+          <div class="form-group" [class.invalid]="!phoneValid">
+            <!-- <label for="phone">Phone number</label> -->
+            <input [value]="phone" type="tel" class="phone-input form-control" id="phone" maxlength=10 placeholder="Phone number" (input)="phoneChange($event)">
+          </div>
+          <div class="form-group">
+            <!-- <label for="password">Password</label> -->
+            <input [value]="password" type="password" class="form-control" id="password" placeholder="Password" (input)="passwordChange($event)">
+          </div>
+          <div class="form-group" [class.invalid]="passwordVerification.length > 0 && passwordVerification != password">
+            <!-- <label for="password-confirm">Confirm password</label> -->
+            <input [value]="passwordVerification" type="password" class="form-control" id="password-confirm" placeholder="Confirm password" (input)="passwordVerificationChange($event)">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" [disabled]="!submitAllowed" (click)="attemptSignup()">Sign Up</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

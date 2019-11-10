@@ -1,0 +1,36 @@
+.signup-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.logo {
+    margin: 0 auto;
+    margin-bottom: 2em;
+    background: url("../../../9f92b92b83bf3426b37b7b0e45ab2d94.png") no-repeat center center;
+    background-size: 100%;
+    width: 6em;
+    height: 6em;
+}
+
+.signup-container {
+    padding-top: 0.5em;
+    background: white;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.invalid {
+    input:not(:focus) {
+        border-bottom-color: red;
+        border-bottom-width: 2px;
+        outline: 0;
+    }
+}

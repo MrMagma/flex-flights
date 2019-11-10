@@ -1,0 +1,36 @@
+<div class="main-parent">
+  <div class="main-container container">
+    <div class="row">
+      <div class="col">
+        <h3>Your Orders</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col">Time left</th>
+              <th scope="col">Flights</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders" (click)="viewOrder(order)">
+                  <td>{{order.source}}</td>
+                  <td>{{order.destination}}</td>
+                  <td>{{getDaysLeft(order)}} day{{getDaysLeft(order) != 1 ? "s" : ""}}</td>
+                  <td>{{order.results.length}} flight{{order.results.length != 1 ? "s" : ""}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row new-row">
+      <div class="col">
+        <button class="btn btn-primary btn-block">New Order</button>
+      </div>
+    </div>
+  </div>
+</div>

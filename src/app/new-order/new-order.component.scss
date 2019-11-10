@@ -1,0 +1,16 @@
+.background {
+    position: absolute;
+    background: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100%;
+}
+
+.source-code, .destination-code {
+    text-transform: uppercase;
+}
+
+.new-order-container {
+    padding-top: 1em;
+}
