@@ -1,2 +1,19 @@
 <app-navbar></app-navbar>
-<app-landing></app-landing>
+<div class="landing-container" [hidden]="pages.getPage().value != pageIds.LANDING">
+    <app-landing></app-landing>
+</div>
+<div class="login-container" [hidden]="pages.getPage().value != pageIds.LOGIN">
+    <app-login></app-login>
+</div>
+<div class="signup-container" [hidden]="pages.getPage().value != pageIds.SIGNUP">
+    <app-signup></app-signup>
+</div>
+<div class="orders-container" [hidden]="pages.getPage().value != pageIds.VIEW_ORDERS">
+    <app-view></app-view>
+</div>
+<div class="view-container" [hidden]="pages.getPage().value != pageIds.VIEW_ORDER">
+    <app-view-order></app-view-order>
+</div>
+<div class="create-container" [hidden]="pages.getPage().value != pageIds.CREATE">
+    <app-new-order></app-new-order>
+</div>

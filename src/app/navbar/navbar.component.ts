@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PagesService } from '../pages.service';
+import { pageIds } from "../page-ids.js";
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pages: PagesService) { }
 
   ngOnInit() {
+  }
+
+  signUpClick() {
+    this.pages.setPage(pageIds.SIGNUP);
+  }
+
+  logInClick() {
+    this.pages.setPage(pageIds.LOGIN);
+  }
+
+  landingClick() {
+    this.pages.setPage(pageIds.LANDING);
   }
 
 }

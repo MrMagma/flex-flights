@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PagesService } from '../pages.service';
+import { pageIds } from "../page-ids.js";
+
 const validator = require("email-validator");
 
 @Component({
@@ -18,7 +21,7 @@ export class SignupComponent implements OnInit {
   password: string = "";
   passwordVerification: string = "";
 
-  constructor() { }
+  constructor(private pages: PagesService) { }
 
   ngOnInit() {
   }
@@ -52,7 +55,7 @@ export class SignupComponent implements OnInit {
 
   attemptSignup() {
     if (this.submitAllowed) {
-      
+      this.pages.setPage(pageIds.VIEW_ORDERS);
     }
   }
 

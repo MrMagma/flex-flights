@@ -9,6 +9,7 @@ import { ViewComponent } from './view/view.component';
 import { NewOrderComponent } from './new-order/new-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { LandingComponent } from './landing/landing.component';
+import { PagesService } from './pages.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { LandingComponent } from './landing/landing.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    PagesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
