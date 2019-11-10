@@ -11,6 +11,8 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { LandingComponent } from './landing/landing.component';
 import { PagesService } from './pages.service';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { PagesService } from './pages.service';
     LandingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     PagesService

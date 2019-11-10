@@ -7,12 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ViewOrderComponent implements OnInit {
 
-  @Input() source: string;
-  @Input() destination: string;
-  @Input() date: string;
-  @Input() flights: Array<{duration: string, seats: number, flightNumber: string, date: string, price: number}>;
+  source: string;
+  destination: string;
+  date: string;
+  flights: Array<{duration: string, seats: number, flightNumber: string, date: string, price: number}>;
 
-  constructor() { }
+  order;
+
+  constructor() {
+    setInterval(_=>{
+      if (window["order"] != null) {
+        this.order = window["order"];
+      }
+    }, 500)
+  }
 
   ngOnInit() {
   }

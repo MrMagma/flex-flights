@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of } from "rxjs";
+import { Observable, Subject, of } from "rxjs";
 
 import { pageIds } from "./page-ids.js";
 
@@ -8,15 +8,18 @@ import { pageIds } from "./page-ids.js";
   providedIn: 'root'
 })
 export class PagesService {
-  page: string = pageIds.LANDING;
+  page = new Subject<string>();
+  pageObs = this.page.asObservable();
 
-  constructor() { }
+  constructor() {
+    this.page.next(pageIds.LANDING);
+  }
 
   getPage(): Observable<string> {
-    return of(this.page);
+    return this.pageObs;
   }
 
   setPage(page: string) {
-    this.page = page;
+    this.page.next(page);
   }
 }

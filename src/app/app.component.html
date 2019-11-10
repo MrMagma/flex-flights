@@ -1,19 +1,19 @@
 <app-navbar></app-navbar>
-<div class="landing-container" [hidden]="pages.getPage().value != pageIds.LANDING">
+<div class="page-container landing-container" [ngStyle]="styles.landing">
     <app-landing></app-landing>
 </div>
-<div class="login-container" [hidden]="pages.getPage().value != pageIds.LOGIN">
+<!-- <div class="page-container login-container" [ngStyle]="styles.login">
     <app-login></app-login>
-</div>
-<div class="signup-container" [hidden]="pages.getPage().value != pageIds.SIGNUP">
+</div> -->
+<div class="page-container signup-container" [ngStyle]="styles.signup">
     <app-signup></app-signup>
 </div>
-<div class="orders-container" [hidden]="pages.getPage().value != pageIds.VIEW_ORDERS">
+<div class="page-container orders-container" [ngStyle]="styles.orders">
     <app-view></app-view>
 </div>
-<div class="view-container" [hidden]="pages.getPage().value != pageIds.VIEW_ORDER">
+<div class="page-container view-container" [ngStyle]="styles.view">
     <app-view-order></app-view-order>
 </div>
-<div class="create-container" [hidden]="pages.getPage().value != pageIds.CREATE">
+<div class="page-container create-container" [ngStyle]="styles.create">
     <app-new-order></app-new-order>
 </div>

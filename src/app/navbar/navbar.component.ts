@@ -9,6 +9,7 @@ import { pageIds } from "../page-ids.js";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  pageIds = pageIds;
 
   constructor(private pages: PagesService) { }
 

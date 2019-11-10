@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { PagesService } from '../pages.service';
 import { pageIds } from "../page-ids.js";
@@ -10,26 +11,25 @@ import { pageIds } from "../page-ids.js";
 })
 export class ViewComponent implements OnInit {
 
-  orders = [{
-    source: "LAX",
-    destination: "LUV",
-    date: "11/7/2019",
-    results: ["fuck shit"]
-  },{
-    source: "CAL",
-    destination: "OHA",
-    date: "11/5/2019",
-    results: []
-  }];
+  orders = [];
 
-  constructor(private pages: PagesService) { }
+  constructor(private pages: PagesService, private https: HttpClient) {
+    pages.getPage().subscribe(_ => {
+      if (_ == pageIds.VIEW_ORDERS) {
+        setInterval(() => https.get("https://flexflights.herokuapp.com/getorders?userId=" + window["userID"]).subscribe(blegh => {
+          this.orders = blegh;
+          console.log(blegh);
+        }), 2000);
+      }
+    });
+  }
 
   getDaysLeft(order) {
-    return Math.ceil(7 - ((new Date()).getTime() - (new Date(order.date)).getTime()) / (1000 * 60 * 60 * 24));
+    return Math.ceil(((new Date(order.endDate)).getTime() - (new Date()).getTime()) / (1000 * 60 * 60 * 24));
   }
 
   viewOrder(order) {
-    console.log(order);
+    window["order"] = order;
     this.pages.setPage(pageIds.VIEW_ORDER);
   }
 

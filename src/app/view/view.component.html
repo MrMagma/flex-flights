@@ -17,10 +17,11 @@
             </thead>
             <tbody>
                 <tr *ngFor="let order of orders" (click)="viewOrder(order)">
-                  <td>{{order.source}}</td>
-                  <td>{{order.destination}}</td>
-                  <td>{{getDaysLeft(order)}} day{{getDaysLeft(order) != 1 ? "s" : ""}}</td>
-                  <td>{{order.results.length}} flight{{order.results.length != 1 ? "s" : ""}}</td>
+                  <td>{{order.origin.toUpperCase()}}</td>
+                  <td>{{order.destination.toUpperCase()}}</td>
+                  <td>30 days</td>
+                  <!-- <td>{{getDaysLeft(order)}} day{{getDaysLeft(order) != 1 ? "s" : ""}}</td> -->
+                  <td>{{order.flights.length}} flight{{order.flights.length != 1 ? "s" : ""}}</td>
                 </tr>
             </tbody>
           </table>

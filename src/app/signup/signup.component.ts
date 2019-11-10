@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { PagesService } from '../pages.service';
 import { pageIds } from "../page-ids.js";
 
@@ -21,7 +23,7 @@ export class SignupComponent implements OnInit {
   password: string = "";
   passwordVerification: string = "";
 
-  constructor(private pages: PagesService) { }
+  constructor(private pages: PagesService, private https: HttpClient) { }
 
   ngOnInit() {
   }
@@ -55,7 +57,17 @@ export class SignupComponent implements OnInit {
 
   attemptSignup() {
     if (this.submitAllowed) {
+      let headers = new HttpHeaders({
+        "Content-Type": "application/x-www-form-urlencoded"
+      })
+      let body = new URLSearchParams();
+      body.set("email", this.email);
+      body.set("password", this.password);
+      body.set("phoneNumber", this.phone);
       this.pages.setPage(pageIds.VIEW_ORDERS);
+      this.https.post("https://flexflights.herokuapp.com/createUser", body.toString(), {headers: headers}).subscribe((stuff) => {
+        window["userID"] = stuff;
+      });
     }
   }
 
